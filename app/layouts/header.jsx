@@ -8,7 +8,7 @@ const Header = () => {
     <div className='grid grid-cols-4 items-center px-20 py-2'>
       <Image src={logo} alt="ManiaTech" width={100} height={50} />
       <Searchbar />
-      <p>Customer Support</p>
+      <p>Customer Support </p>
       <ShoppingCart/>
     </div>
   )
