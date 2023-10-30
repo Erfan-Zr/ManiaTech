@@ -19,7 +19,7 @@ export const Menus = [
   },
   {
     title: "Menu 2",
-    id: 1,
+    id: 2,
     items: [
       {
         title: "item 1",
@@ -29,7 +29,7 @@ export const Menus = [
   },
   {
     title: "Menu 3",
-    id: 1,
+    id: 3,
     items: [
       {
         title: "item 1",
@@ -40,11 +40,11 @@ export const Menus = [
         id: 2,
         subItems: [
           {
-            titel: " subItem 1",
+            title: " subItem 1",
             id: 1,
           },
           {
-            titel: " subItem 2",
+            title: " subItem 2",
             id: 2,
           },
         ],
