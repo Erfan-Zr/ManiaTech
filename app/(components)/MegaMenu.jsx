@@ -3,14 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Menus } from "../(data)/MegaMenuData";
 import ArrowDown from "@/public/icons/arrow-down.svg";
 import Image from "next/image";
-import "./MegaMenu.css";
+
 const MegaMenu = () => {
-  let [hoveredSubItemIndex, setHoveredSubItemIndex] = useState();
-  useEffect(() => {
-    console.log("hoveredSubItemIndex", hoveredSubItemIndex);
-  }, [hoveredSubItemIndex]);
   return (
-    <div className="flex flex-row gap-2 px-8 py-2">
+    <div className="hidden  flex-row gap-2 px-8 py-2  sm:flex">
       {Menus.map((menu) => {
         return (
           <div key={menu.id} className="relatives group">
@@ -37,14 +33,6 @@ const MegaMenu = () => {
                     <div
                       key={item.id}
                       className="relative flex group/subItem w-[100%] rounded-md"
-                      onMouseEnter={() => {
-                        if (item.subItems?.length > 0)
-                          setHoveredSubItemIndex(itemIndex);
-                      }}
-                      onMouseLeave={() => {
-                        if (item.subItems?.length > 0)
-                          setHoveredSubItemIndex(null);
-                      }}
                     >
                       <div className="p-2 cursor-pointer hover:bg-slate-50 flex justify-between w-[100%]">
                         <p>{item.title}</p>

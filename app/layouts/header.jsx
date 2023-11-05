@@ -8,11 +8,17 @@ const Header = () => {
     <div className="flex-col sticky top-0 justify-center items-center">
       <div className="flex-col bg-slate-400 justify-center items-center">
         <div className="grid grid-cols-4 items-center  py-2  px-8 w-[85%]">
-          <Image src={logo} alt="ManiaTech" width={100} height={50} />
+          <Image
+            src={logo}
+            alt="ManiaTech"
+            width={100}
+            height={50}
+            priority={true}
+          />
           <Searchbar />
           <p>Customer Support </p>
           <ShoppingCart />
-          <Image src="" />
+          {/* <Image src="" /> */}
         </div>
       </div>
 

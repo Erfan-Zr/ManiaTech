@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Searchbar = () => {
-  return (
-    <div>Searchbar</div>
-  )
-}
+  return <div>Searchbar</div>;
+};
 
-export default Searchbar
+export default Searchbar;
