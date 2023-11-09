@@ -13,7 +13,7 @@ const Sidebar = () => {
   let [activeSubItemIndex, setActiveSubItemIndex] = useState(false);
 
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <Image
         src={MenuIcon}
         width={30}
@@ -28,6 +28,7 @@ const Sidebar = () => {
         onClick={() => {
           setShowMenu(false);
           setActiveItemIndex();
+          setActiveSubItemIndex();
         }}
       ></div>
 
@@ -37,7 +38,7 @@ const Sidebar = () => {
           e.preventDefault();
         }}
       >
-        <div className="py-4">
+        <div className="py-4 menu">
           {Menus.map((menu, index) => (
             <div key={menu.id}>
               <div
@@ -63,54 +64,61 @@ const Sidebar = () => {
                   }
                 />
               </div>
-              <div className="bg-slate-200">
-                {activeItemIndex === index &&
-                  menu.items.map((item, itemIndex) => {
-                    return (
-                      <div key={item.id}>
-                        <div
-                          className="flex justify-between group  px-4 py-2"
-                          onClick={() => {
-                            if (itemIndex === activeSubItemIndex) {
-                              setActiveSubItemIndex();
-                            } else {
-                              setActiveSubItemIndex(itemIndex);
+              <div
+                className={
+                  index === activeItemIndex ? "show_item" : "hide_item"
+                }
+              >
+                {menu.items.map((item, itemIndex) => {
+                  return (
+                    <div key={item.id}>
+                      <div
+                        className="flex justify-between group  px-4 py-2"
+                        onClick={() => {
+                          if (itemIndex === activeSubItemIndex) {
+                            setActiveSubItemIndex();
+                          } else {
+                            setActiveSubItemIndex(itemIndex);
+                          }
+                        }}
+                      >
+                        <h3>{item.title}</h3>
+                        {item.subItems?.length > 0 && (
+                          <Image
+                            src={ArrowDown}
+                            width={20}
+                            height={20}
+                            alt="arrow down"
+                            className={
+                              itemIndex === activeSubItemIndex
+                                ? "rotate-180 transition-transform transform duration-500"
+                                : "rotate-360 transition-transform transform duration-500"
                             }
-                          }}
-                        >
-                          {console.log(activeSubItemIndex, itemIndex)}
-                          <h3>{item.title}</h3>
-                          {item.subItems?.length > 0 && (
-                            <Image
-                              src={ArrowDown}
-                              width={20}
-                              height={20}
-                              alt="arrow down"
-                              className={
-                                itemIndex === activeSubItemIndex
-                                  ? "rotate-180 transition-transform transform duration-500"
-                                  : "rotate-360 transition-transform transform duration-500"
-                              }
-                            />
-                          )}
-                        </div>
-                        <div className="bg-slate-300">
-                          {activeSubItemIndex === itemIndex &&
-                            item.subItems?.length > 0 &&
-                            item.subItems.map((subItem) => {
-                              return (
-                                <div
-                                  className="flex justify-between group px-4 py-2"
-                                  key={subItem.id}
-                                >
-                                  <h2>{subItem.title}</h2>
-                                </div>
-                              );
-                            })}
-                        </div>
+                          />
+                        )}
                       </div>
-                    );
-                  })}
+                      <div
+                        className={
+                          itemIndex === activeSubItemIndex
+                            ? "show_item"
+                            : "hide_item"
+                        }
+                      >
+                        {item.subItems?.length > 0 &&
+                          item.subItems.map((subItem) => {
+                            return (
+                              <div
+                                className="flex justify-between group px-4 py-2"
+                                key={subItem.id}
+                              >
+                                <h2>{subItem.title}</h2>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}

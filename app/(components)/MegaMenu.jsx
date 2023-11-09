@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const MegaMenu = () => {
   return (
-    <div className="hidden  flex-row gap-2 px-8 py-2  sm:flex">
+    <div className="hidden  flex-row gap-2 px-8 py-2  md:flex">
       {Menus.map((menu) => {
         return (
           <div key={menu.id} className="relatives group">
