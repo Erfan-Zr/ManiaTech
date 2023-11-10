@@ -11,6 +11,9 @@ const Header = () => {
       <div className="flex-col bg-slate-400 justify-center items-center">
         <div className="grid grid-cols-5 items-center py-2 px-8 max-md:justify-items-center">
           <Sidebar />
+          <div className="md:hidden">
+            <Searchbar />
+          </div>
           <Image
             src={logo}
             alt="ManiaTech"
@@ -18,6 +21,7 @@ const Header = () => {
             height={50}
             priority={true}
           />
+
           <Image
             src={profile}
             alt="profile icon"
@@ -26,7 +30,9 @@ const Header = () => {
             priority={true}
             className=""
           />
-          <Searchbar />
+          <div className="max-md:hidden">
+            <Searchbar />
+          </div>
           <p className="max-md:hidden">Customer Support </p>
           <ShoppingCart />
           {/* <Image src="" /> */}
