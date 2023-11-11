@@ -5,11 +5,36 @@ import ArrowDown from "@/public/icons/arrow-down.svg";
 import Image from "next/image";
 
 const MegaMenu = () => {
+  const [isMegaMenuVisible, setMegaMenuVisible] = useState(true);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 10;
+
+      if (window.scrollY > scrollThreshold) {
+        setMegaMenuVisible(false);
+      } else {
+        setMegaMenuVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="hidden  flex-row gap-2 px-8 py-2  md:flex">
+    <div className="hidden  flex-row gap-2 px-8 py-2 relative md:flex  md:z-10 md:relative bg-white">
       {Menus.map((menu) => {
         return (
-          <div key={menu.id} className="relatives group">
+          <div
+            key={menu.id}
+            className={
+              isMegaMenuVisible
+                ? " group  block transform transition-all duration-500 top-9"
+                : " transform transition-all duration-500 mt-[-50px] relative"
+            }
+          >
             <div className="flex cursor-pointer gap-2">
               <p className="group-hover: pb-1 relative">
                 {menu.title}
@@ -47,7 +72,7 @@ const MegaMenu = () => {
                         )}
                       </div>
                       <div
-                        className="absolute bg-white right-[150px] flex-col transition-all transform duration-500 shadow w-[150px] opacity-0 scale-y-0 group-hover/subItem:opacity-100 group-hover/subItem:scale-100 "
+                        className="absolute rounded-md bg-white right-[150px] flex-col transition-all transform duration-500 shadow w-[150px] opacity-0 scale-y-0 group-hover/subItem:opacity-100 group-hover/subItem:scale-100 "
                         // className="scale-y-0  flex-col w-[150px] group-hover/subItem:scale-y-100 shadow absolute left-0"
                         // {`absolute flex-col w-[150px] shadow right-[150px] bottom-auto transition-transform transform duration-500`}
                       >
