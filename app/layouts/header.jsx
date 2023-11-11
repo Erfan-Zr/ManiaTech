@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="flex-col sticky top-0 justify-center items-center">
       <div className="flex-col bg-slate-400 justify-center items-center">
-        <div className="grid grid-cols-5 items-center py-2 px-8 max-md:justify-items-center">
+        <div className="grid grid-cols-5 items-center py-2 md:px-8 max-md:justify-items-center ">
           <Sidebar />
           <div className="md:hidden">
             <Searchbar />
