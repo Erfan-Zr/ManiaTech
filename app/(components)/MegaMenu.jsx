@@ -47,7 +47,7 @@ const MegaMenu = () => {
                         )}
                       </div>
                       <div
-                        className="absolute right-[150px] flex-col transition-all transform duration-500 shadow w-[150px] opacity-0 scale-y-0 group-hover/subItem:opacity-100 group-hover/subItem:scale-100 "
+                        className="absolute bg-white right-[150px] flex-col transition-all transform duration-500 shadow w-[150px] opacity-0 scale-y-0 group-hover/subItem:opacity-100 group-hover/subItem:scale-100 "
                         // className="scale-y-0  flex-col w-[150px] group-hover/subItem:scale-y-100 shadow absolute left-0"
                         // {`absolute flex-col w-[150px] shadow right-[150px] bottom-auto transition-transform transform duration-500`}
                       >
