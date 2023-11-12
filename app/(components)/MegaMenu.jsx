@@ -6,15 +6,22 @@ import Image from "next/image";
 
 const MegaMenu = () => {
   const [isMegaMenuVisible, setMegaMenuVisible] = useState(true);
+  const [prevScrollY, setPrevScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollThreshold = 10;
+      const currentScrollY = window.scrollY;
 
-      if (window.scrollY > scrollThreshold) {
-        setMegaMenuVisible(false);
-      } else {
+      if (currentScrollY > prevScrollY + scrollThreshold) {
+        // Scrolling down, hide the menu
         setMegaMenuVisible(true);
+      } else if (currentScrollY < prevScrollY - scrollThreshold) {
+        // Scrolling up, show the menu
+        setMegaMenuVisible(false);
       }
+
+      setPrevScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -22,21 +29,27 @@ const MegaMenu = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, [prevScrollY]);
+  useEffect(() => {
+    setMegaMenuVisible(true);
   }, []);
   return (
-    <div className="hidden  flex-row gap-2 px-8 py-2 relative md:flex  md:z-10 md:relative bg-white">
+    <div
+      className={`flex-row gap-2 px-8 py-2  md:flex relative z-50 transform transition-all duration-500 align-middle`}
+      // className="hidden  flex-row gap-2 px-8 py-2 sticky md:flex bg-white z-50 "
+    >
       {Menus.map((menu) => {
         return (
           <div
             key={menu.id}
             className={
-              isMegaMenuVisible
-                ? " group  block transform transition-all duration-500 top-9"
-                : " transform transition-all duration-500 mt-[-50px] relative"
+              // isMegaMenuVisible               ?
+              " group  block transform transition-all duration-500 relative z-50"
+              // : " transform transition-all duration-500 mt-[-50px] relative z-[-1]"
             }
           >
             <div className="flex cursor-pointer gap-2">
-              <p className="group-hover: pb-1 relative">
+              <p className="group-hover: relative">
                 {menu.title}
                 <span
                   className="group-hover:scale-x-100 transform transition-transform duration-500 scale-x-0 w-full absolute bottom-0 left-0 border-black"
