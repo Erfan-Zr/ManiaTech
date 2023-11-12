@@ -3,13 +3,13 @@ import React from "react";
 import hero from "@/public/images/hero-4.jpg";
 const Hero = () => {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <Image
         src={hero}
         alt="hero"
         width={"100%"}
         height={"auto"}
-        className="z-[-1] relative"
+        className="z-[-1] relative "
       />
       <div className="absolute top-1/3  transform -translate-x-1/2 -translate-y-1/2 z-10">
         <h1 className="text-5xl font-semibold text-[#007a9f]">
