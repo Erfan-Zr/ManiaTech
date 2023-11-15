@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import hero from "@/public/images/hero-4.jpg";
+
 const Hero = () => {
   return (
     <div className="relative overflow-hidden">
