@@ -4,6 +4,7 @@ import { Menus } from "../(data)/MegaMenuData";
 import ArrowDown from "@/public/icons/arrow-down.svg";
 import Image from "next/image";
 import "./MegaMenu.css";
+
 const MegaMenu = () => {
   const [scrollDirection, setScrollDirection] = useState("up");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -24,7 +25,6 @@ const MegaMenu = () => {
 
     // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
