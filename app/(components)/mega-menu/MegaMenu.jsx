@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Menus } from "../(data)/MegaMenuData";
+import { Menus } from "../../(data)/MegaMenuData";
 import ArrowDown from "@/public/icons/arrow-down.svg";
 import Image from "next/image";
 import "./MegaMenu.css";
@@ -64,7 +64,7 @@ const MegaMenu = () => {
                         key={item.id}
                         className="relative flex group/subItem w-[100%] rounded-md"
                       >
-                        <div className="p-2 cursor-pointer hover:bg-slate-50 flex justify-between w-[100%]">
+                        <div className="p-2 cursor-pointer hover:bg-slate-50 flex justify-between w-[100%] rounded-md">
                           <p>{item.title}</p>
                           {item.subItems?.length > 0 && (
                             <Image
@@ -85,7 +85,7 @@ const MegaMenu = () => {
                             return (
                               <div
                                 key={subItem.id}
-                                className="grid-flow-col p-2 cursor-pointer hover:bg-slate-50"
+                                className="grid-flow-col p-2 cursor-pointer hover:bg-slate-50 rounded-md"
                               >
                                 <p>{subItem.title}</p>
                               </div>
