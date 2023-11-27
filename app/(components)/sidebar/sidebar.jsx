@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Menus } from "../(data)/MegaMenuData";
+import { Menus } from "../../(data)/MegaMenuData";
 import Link from "next/link";
 import Image from "next/image";
 import MenuIcon from "@/public/icons/menu.svg";
